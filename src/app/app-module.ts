@@ -13,6 +13,7 @@ import { RecordDetail } from './records/record-detail/record-detail';
 import { RecordEdit } from './records/record-edit/record-edit';
 import { RecordItem } from './records/record-item/record-item';
 import { RecordList } from './records/record-list/record-list';
+import { Header } from './header';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RecordList } from './records/record-list/record-list';
     RecordDetail,
     RecordEdit,
     RecordItem,
-    RecordList
+    RecordList,
+    Header
   ],
   imports: [
     BrowserModule,
