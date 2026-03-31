@@ -1,1 +1,24 @@
-<p>vehicle-list works!</p>
+<div class="container-fluid border">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div id="vehicle-list-heading" class="row">
+            <h3 class="title pull-left">Vehicles</h3>
+            <a id="button" class="btn btn-success pull-right" [routerLink]="['new']">New Vehicle</a>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-xs-12">
+              <cmm-vehicle-item
+                *ngFor="let vehicleEl of vehicles"
+                [vehicle]="vehicleEl">
+              </cmm-vehicle-item>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

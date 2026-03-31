@@ -1,1 +1,99 @@
-<p>vehicle-edit works!</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form id="vehicle-edit" #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="make">Make:</label>
+          <input
+            type="text"
+            id="make"
+            class="form-control required"
+            size="120"
+            max="120"
+            name="make"
+            [ngModel]="vehicle.make"
+            required
+            #make="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="model">Model:</label>
+          <input
+            type="text"
+            id="model"
+            class="form-control required"
+            size="120"
+            max="255"
+            name="model"
+            [ngModel]="vehicle.model"
+            required
+            #model="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="year">Year:</label>
+          <input
+            type="text"
+            id="year"
+            class="form-control required"
+            size="150"
+            max="255"
+            name="year"
+            [ngModel]="vehicle.year"
+            required
+            #year="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="mileage">Mileage:</label>
+          <input
+            type="text"
+            id="mileage"
+            class="form-control"
+            size="150"
+            max="255"
+            name="mileage"
+            [ngModel]="vehicle.mileage"
+            #mileage="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="vin">VIN:</label>
+          <input
+            type="text"
+            id="vin"
+            class="form-control"
+            size="150"
+            max="255"
+            name="vin"
+            [ngModel]="vehicle.vin"
+            #vin="ngModel">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <div class="alert alert-danger" *ngIf="(make.untouched && !make.valid) || (model.untouched && !model.valid) || (year.untouched && !year.valid) ||(vin.untouched && !vin.valid) || (mileage.untouched && !mileage.valid)">
+            The Make, Model, Year, Mileage, and VIN fields are required.
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 btn-toolbar">
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">Save</button>
+          <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

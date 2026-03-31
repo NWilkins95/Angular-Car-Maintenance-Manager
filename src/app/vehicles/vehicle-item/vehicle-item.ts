@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Vehicle } from '../vehicle.model';
 
 @Component({
   selector: 'cmm-vehicle-item',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './vehicle-item.css',
 })
 export class VehicleItem {
-
+  @Input() vehicle!: Vehicle;
 }
