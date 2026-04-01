@@ -1,1 +1,15 @@
-<p>record-item works!</p>
+<a
+	routerLinkActive="active"
+	[routerLinkActiveOptions]="{ exact: true }"
+	[routerLink]="['/records', record.id]"
+	class="list-group-item clearfix">
+	<div class="pull-left">
+		<h4 class="list-group-item-heading">{{ record.serviceType }}</h4>
+		<p class="list-group-item-text">{{ vehicleLabel }}</p>
+	</div>
+	<span class="pull-right text-right">
+		<span class="badge">{{ record.date }}</span>
+		<br>
+		<small>${{ record.cost }}</small>
+	</span>
+</a>

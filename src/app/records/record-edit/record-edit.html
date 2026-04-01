@@ -1,1 +1,96 @@
-<p>record-edit works!</p>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form id="record-edit" #f="ngForm" (ngSubmit)="onSubmit(f)">
+			<div class="row">
+				<div class="col-sm-12 form-group">
+					<label for="vehicleId">Vehicle:</label>
+					<select
+						id="vehicleId"
+						class="form-control required"
+						name="vehicleId"
+						[ngModel]="record.vehicleId"
+						required
+						#vehicleId="ngModel">
+						<option value="" disabled>Select a vehicle</option>
+						<option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
+							{{ vehicle.make }} {{ vehicle.model }}
+						</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 form-group">
+					<label for="date">Date:</label>
+					<input
+						type="date"
+						id="date"
+						class="form-control required"
+						name="date"
+						[ngModel]="record.date"
+						required
+						#date="ngModel">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 form-group">
+					<label for="serviceType">Service Type:</label>
+					<input
+						type="text"
+						id="serviceType"
+						class="form-control required"
+						size="120"
+						max="255"
+						name="serviceType"
+						[ngModel]="record.serviceType"
+						required
+						#serviceType="ngModel">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 form-group">
+					<label for="description">Description:</label>
+					<textarea
+						id="description"
+						class="form-control"
+						rows="3"
+						name="description"
+						[ngModel]="record.description"
+						#description="ngModel"></textarea>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 form-group">
+					<label for="cost">Cost:</label>
+					<input
+						type="text"
+						id="cost"
+						class="form-control"
+						size="120"
+						max="255"
+						name="cost"
+						[ngModel]="record.cost"
+						#cost="ngModel">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 form-group">
+					<div class="alert alert-danger" *ngIf="(vehicleId.untouched && !vehicleId.valid) || (date.untouched && !date.valid) || (serviceType.untouched && !serviceType.valid)">
+						Vehicle, Date, and Service Type are required.
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-xs-12 btn-toolbar">
+					<button class="btn btn-success" type="submit" [disabled]="!f.valid">Save</button>
+					<button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

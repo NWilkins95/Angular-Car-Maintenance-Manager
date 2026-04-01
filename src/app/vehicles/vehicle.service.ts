@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { MOCKVEHICLES } from './MOCKVEHICLES';
 import { Vehicle } from './vehicle.model';
+import { RecordService } from '../records/record.service';
 
 @Injectable({
     providedIn: 'root'
@@ -14,7 +15,7 @@ export class VehicleService {
     vehicleListChangedEvent = new Subject<Vehicle[]>();
     private vehiclesUrl = 'http://localhost:3000/vehicles';
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private recordService: RecordService) {
         this.initializeFromMockData();
     }
 
@@ -98,11 +99,13 @@ export class VehicleService {
         this.http.delete(this.vehiclesUrl + '/' + vehicle.id).subscribe(
             () => {
                 this.vehicles.splice(pos, 1);
+                this.recordService.deleteRecordsForVehicle(vehicle.id);
                 this.sortAndSend();
             },
             (error: any) => {
                 console.error(error);
                 this.vehicles.splice(pos, 1);
+                this.recordService.deleteRecordsForVehicle(vehicle.id);
                 this.sortAndSend();
             }
         );

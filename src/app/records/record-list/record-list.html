@@ -1,1 +1,41 @@
-<p>record-list works!</p>
+<div class="container-fluid border">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div id="record-list-heading" class="row">
+						<h3 class="title pull-left">Records</h3>
+						<a id="button" class="btn btn-success pull-right" [routerLink]="['new']">New Record</a>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div class="row record-filter-row">
+						<div class="col-xs-12">
+							<label for="vehicleFilter">Filter by Vehicle:</label>
+							<select
+								id="vehicleFilter"
+								class="form-control"
+								[ngModel]="selectedVehicleId"
+								(ngModelChange)="onVehicleFilterChange($event)">
+								<option value="">All Vehicles</option>
+								<option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
+									{{ vehicle.make }} {{ vehicle.model }}
+								</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12">
+							<cmm-record-item
+								*ngFor="let recordEl of filteredRecords"
+								[record]="recordEl"
+								[vehicleLabel]="getVehicleLabel(recordEl.vehicleId)">
+							</cmm-record-item>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

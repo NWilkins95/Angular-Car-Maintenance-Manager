@@ -1,1 +1,19 @@
-<p>record-detail works!</p>
+<div class="panel panel-default contact-detail-panel" *ngIf="record">
+	<div class="navbar-default contact-detail-header">
+		<div class="contact-header-content">
+			<h3 class="pull-left">{{ record.serviceType }}</h3>
+			<div>
+				<div class="contact-actions">
+					<a [routerLink]="['/records', record.id, 'edit']" class="btn btn-primary btn-sm">Edit</a>
+					<a (click)="onDelete()" class="btn btn-danger btn-sm">Delete</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body contact-detail-body">
+		<p><strong>Vehicle:</strong> {{ getVehicleLabel() }}</p>
+		<p><strong>Date:</strong> {{ record.date }}</p>
+		<p><strong>Description:</strong> {{ record.description }}</p>
+		<p><strong>Cost:</strong> ${{ record.cost }}</p>
+	</div>
+</div>

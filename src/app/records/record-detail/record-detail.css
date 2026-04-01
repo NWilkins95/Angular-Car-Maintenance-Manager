@@ -1,0 +1,26 @@
+.contact-detail-panel {
+	margin-top: 20px;
+}
+
+.contact-detail-header {
+	padding: 15px;
+}
+
+.contact-header-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.contact-actions {
+	margin-top: 10px;
+	text-align: right;
+}
+
+.contact-actions .btn {
+	margin-left: 8px;
+}
+
+.contact-detail-body p {
+	margin-bottom: 10px;
+}
