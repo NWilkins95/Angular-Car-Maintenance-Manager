@@ -1,1 +1,18 @@
-<p>vehicle-detail works!</p>
+<div class="panel panel-default contact-detail-panel" *ngIf="vehicle">
+	<div class="navbar-default contact-detail-header">
+		<div class="contact-header-content">
+			<h3 class="pull-left">{{ vehicle.make }} {{ vehicle.model }}</h3>
+			<div>
+				<div class="contact-actions">
+					<a [routerLink]="['/vehicles', vehicle.id, 'edit']" class="btn btn-primary btn-sm">Edit</a>
+					<a (click)="onDelete()" class="btn btn-danger btn-sm">Delete</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body contact-detail-body">
+		<p><strong>Year:</strong> {{ vehicle.year }}</p>
+		<p><strong>Mileage:</strong> {{ vehicle.mileage }}</p>
+		<p><strong>VIN:</strong> {{ vehicle.vin }}</p>
+	</div>
+</div>

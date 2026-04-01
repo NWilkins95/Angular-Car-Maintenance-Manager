@@ -1,1 +1,8 @@
-<p>vehicle-item works!</p>
+<a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="['/vehicles', vehicle.id]" class="list-group-item clearfix">
+    <div class="pull-left">
+        <h4 class="list-group-item-heading">{{ vehicle.make }} {{ vehicle.model }}</h4>
+    </div>
+    <span class="pull-right">
+        <span class="badge">{{ vehicle.year }}</span>
+    </span>
+</a>
