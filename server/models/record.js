@@ -6,6 +6,7 @@ const recordSchema = mongoose.Schema({
     date: { type: Date, required: true},
     serviceType: { type: String, required: true},
     description: { type: String, required: true},
+    mileage: { type: String, required: true},
     cost: { type: String, required: true}
 });
 

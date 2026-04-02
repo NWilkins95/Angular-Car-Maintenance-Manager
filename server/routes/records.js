@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const Record = require('../models/record');
+const Vehicle = require('../models/vehicle');
 
 router.get('/', (req, res, next) => {
 	Record.find()
@@ -37,6 +38,7 @@ router.post('/', (req, res, next) => {
 				date: req.body.date,
 				serviceType: req.body.serviceType,
 				description: req.body.description,
+				mileage: req.body.mileage,
 				cost: req.body.cost
 			});
 
@@ -70,10 +72,11 @@ router.put('/:id', (req, res, next) => {
 			record.date = req.body.date;
 			record.serviceType = req.body.serviceType;
 			record.description = req.body.description;
+			record.mileage = req.body.mileage;
 			record.cost = req.body.cost;
 
 			Record.updateOne({ id: req.params.id }, record)
-				.then((result) => {
+				.then(() => {
 					res.status(204).json({
 						message: 'Record updated successfully'
 					});
