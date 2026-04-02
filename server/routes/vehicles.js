@@ -36,6 +36,7 @@ router.post('/', (req, res, next) => {
 				make: req.body.make,
 				model: req.body.model,
 				year: req.body.year,
+				mileage: req.body.mileage,
 				vin: req.body.vin
 			});
 
@@ -68,6 +69,7 @@ router.put('/:id', (req, res, next) => {
 			vehicle.make = req.body.make;
 			vehicle.model = req.body.model;
 			vehicle.year = req.body.year;
+			vehicle.mileage = req.body.mileage;
 			vehicle.vin = req.body.vin;
 
 			Vehicle.updateOne({ id: req.params.id }, vehicle)

@@ -60,6 +60,7 @@
             max="255"
             name="mileage"
             [ngModel]="vehicle.mileage"
+            required
             #mileage="ngModel">
         </div>
       </div>
@@ -75,13 +76,14 @@
             max="255"
             name="vin"
             [ngModel]="vehicle.vin"
+            required
             #vin="ngModel">
         </div>
       </div>
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <div class="alert alert-danger" *ngIf="(make.untouched && !make.valid) || (model.untouched && !model.valid) || (year.untouched && !year.valid) ||(vin.untouched && !vin.valid) || (mileage.untouched && !mileage.valid)">
+          <div class="alert alert-danger" *ngIf="f.invalid && (f.submitted || make.touched || model.touched || year.touched || mileage.touched || vin.touched)">
             The Make, Model, Year, Mileage, and VIN fields are required.
           </div>
         </div>

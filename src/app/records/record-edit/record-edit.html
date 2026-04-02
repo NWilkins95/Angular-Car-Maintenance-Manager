@@ -79,7 +79,7 @@
 
 			<div class="row">
 				<div class="col-sm-12 form-group">
-					<div class="alert alert-danger" *ngIf="(vehicleId.untouched && !vehicleId.valid) || (date.untouched && !date.valid) || (serviceType.untouched && !serviceType.valid)">
+					<div class="alert alert-danger" *ngIf="f.invalid && (f.submitted || vehicleId.touched || date.touched || serviceType.touched)">
 						Vehicle, Date, and Service Type are required.
 					</div>
 				</div>
