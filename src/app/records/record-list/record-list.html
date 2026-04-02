@@ -19,7 +19,7 @@
 								(ngModelChange)="onVehicleFilterChange($event)">
 								<option value="">All Vehicles</option>
 								<option *ngFor="let vehicle of vehicles" [value]="vehicle.id">
-									{{ vehicle.make }} {{ vehicle.model }}
+									{{ vehicle.year }} {{ vehicle.make }} {{ vehicle.model }}
 								</option>
 							</select>
 						</div>

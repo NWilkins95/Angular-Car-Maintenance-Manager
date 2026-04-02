@@ -56,7 +56,7 @@ export class RecordList {
       return 'Unknown Vehicle';
     }
 
-    return `${selectedVehicle.make} ${selectedVehicle.model}`;
+    return ` ${selectedVehicle.year} ${selectedVehicle.make} ${selectedVehicle.model}`;
   }
 
   ngOnDestroy(): void {

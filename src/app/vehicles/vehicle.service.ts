@@ -16,7 +16,7 @@ export class VehicleService {
     private vehiclesUrl = 'http://localhost:3000/vehicles';
 
     constructor(private http: HttpClient, private recordService: RecordService) {
-        this.initializeFromMockData();
+        // Keep constructor empty so server data is attempted first.
     }
 
     private initializeFromMockData(): void {
