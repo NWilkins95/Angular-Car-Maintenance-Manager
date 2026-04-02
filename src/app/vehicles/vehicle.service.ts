@@ -44,22 +44,6 @@ export class VehicleService {
             'Content-Type': 'application/json'
         });
 
-        // Keep the first render sorted 
-        this.vehicles.sort((currentVehicle: Vehicle, nextVehicle: Vehicle) => {
-            const currentLabel = `${currentVehicle.make} ${currentVehicle.model}`.toLowerCase();
-            const nextLabel = `${nextVehicle.make} ${nextVehicle.model}`.toLowerCase();
-
-            if (currentLabel < nextLabel) {
-                return -1;
-            }
-
-            if (currentLabel > nextLabel) {
-                return 1;
-            }
-
-            return 0;
-        });
-
         this.http.get<{ message?: string; vehicles: Vehicle[] }>(this.vehiclesUrl, { headers }).subscribe(
             (responseData) => {
                 this.vehicles = responseData.vehicles || [];
