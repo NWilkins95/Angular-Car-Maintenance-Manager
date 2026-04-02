@@ -50,8 +50,6 @@ export class RecordService {
       'Content-Type': 'application/json'
     });
 
-    this.sortRecords();
-
     this.http.get<{ message?: string; records: Record[] }>(this.recordsUrl, { headers }).subscribe(
       (responseData) => {
         this.records = responseData.records || [];
