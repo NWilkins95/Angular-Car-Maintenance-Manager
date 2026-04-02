@@ -26,6 +26,7 @@ export class RecordService {
           record.date,
           record.serviceType,
           record.description,
+          record.mileage,
           record.cost
         )
     );

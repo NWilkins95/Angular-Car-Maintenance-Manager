@@ -5,6 +5,7 @@ export class Record {
     public date: string,
     public serviceType: string,
     public description: string,
+    public mileage: string,
     public cost: string
   ) {}
 }

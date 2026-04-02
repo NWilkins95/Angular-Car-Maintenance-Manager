@@ -13,6 +13,7 @@
 	<div class="panel-body contact-detail-body">
 		<p><strong>Vehicle:</strong> {{ getVehicleLabel() }}</p>
 		<p><strong>Date:</strong> {{ record.date | date:'MMMM d, y':'UTC' }}</p>
+		<p><strong>Mileage at Service:</strong> {{ record.mileage }}</p>
 		<p><strong>Description:</strong> {{ record.description }}</p>
 		<p><strong>Cost:</strong> ${{ record.cost }}</p>
 	</div>

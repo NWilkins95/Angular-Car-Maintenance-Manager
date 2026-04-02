@@ -64,6 +64,22 @@
 
 			<div class="row">
 				<div class="col-sm-12 form-group">
+					<label for="mileage">Mileage at Service:</label>
+					<input
+						type="text"
+						id="mileage"
+						class="form-control required"
+						size="120"
+						max="255"
+						name="mileage"
+						[ngModel]="record.mileage"
+						required
+						#mileage="ngModel">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 form-group">
 					<label for="cost">Cost:</label>
 					<input
 						type="text"
@@ -79,8 +95,8 @@
 
 			<div class="row">
 				<div class="col-sm-12 form-group">
-					<div class="alert alert-danger" *ngIf="f.invalid && (f.submitted || vehicleId.touched || date.touched || serviceType.touched)">
-						Vehicle, Date, and Service Type are required.
+					<div class="alert alert-danger" *ngIf="f.invalid && (f.submitted || vehicleId.touched || date.touched || serviceType.touched || mileage.touched)">
+						Vehicle, Date, Service Type, and Mileage are required.
 					</div>
 				</div>
 			</div>

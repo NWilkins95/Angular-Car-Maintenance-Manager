@@ -14,7 +14,7 @@ import { RecordService } from '../record.service';
 })
 export class RecordEdit implements OnInit {
   originalRecord: Record | null = null;
-  record: Record = new Record('', '', '', '', '', '');
+  record: Record = new Record('', '', '', '', '', '', '');
   vehicles: Vehicle[] = [];
   editMode = false;
   id = '';
@@ -51,6 +51,7 @@ export class RecordEdit implements OnInit {
         this.originalRecord.date,
         this.originalRecord.serviceType,
         this.originalRecord.description,
+        this.originalRecord.mileage,
         this.originalRecord.cost
       );
     });
@@ -64,6 +65,7 @@ export class RecordEdit implements OnInit {
       value.date,
       value.serviceType,
       value.description || '',
+      value.mileage || '',
       value.cost || ''
     );
 

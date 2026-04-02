@@ -42,7 +42,7 @@ export class RecordDetail {
       return 'Unknown Vehicle';
     }
 
-    return `${vehicle.make} ${vehicle.model}`;
+    return `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
   }
 
 }
